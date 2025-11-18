@@ -34,15 +34,16 @@ body {
   box-shadow: 0 0 12px #33ff00;
 }
 
-/* Animación balanceo retro */
-@keyframes balanceo {
-  0% { transform: rotate(-2deg) scale(1.02); }
-  50% { transform: rotate(2deg) scale(0.98); }
-  100% { transform: rotate(-2deg) scale(1.02); }
+/* Animación bote retro */
+@keyframes boteRetro {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
-.anim-balanceo {
-  animation: balanceo 1.2s infinite ease-in-out;
+
+.anim-bote {
+  animation: boteRetro 0.8s infinite ease-in-out;
 }
+
 
 /* Pregunta */
 #pregunta-box img {

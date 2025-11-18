@@ -51,7 +51,7 @@ const personajes = [
   { nombre: "Sora", img: "img/sora.png" },
   { nombre: "Bayonetta", img: "img/bayonetta.png" },
   { nombre: "Jill Valentine", img: "img/jill.png" },
-  { nombre: "Leon S. Kennedy", img: "img/leon.png" }
+  { nombre: "Leon S. Kennedy", img: "img/leon.png" },
 ];
 
 // ----------------------------
@@ -92,15 +92,18 @@ function pickRandom(arr, n) {
 // ----------------------------
 function generarPreguntas() {
   const seleccion = pickRandom(personajes, 5);
-  return seleccion.map(p => {
-    const falsas = pickRandom(personajes.filter(x => x.nombre !== p.nombre), 2).map(x => x.nombre);
+  return seleccion.map((p) => {
+    const falsas = pickRandom(
+      personajes.filter((x) => x.nombre !== p.nombre),
+      2
+    ).map((x) => x.nombre);
     const opciones = shuffle([p.nombre, ...falsas]);
     return { img: p.img, correcta: p.nombre, opciones };
   });
 }
 
 // ----------------------------
-// RENDER Y INTERACCIÓN 
+// RENDER Y INTERACCIÓN imagen de pregunta, anima el movimiento, bloquea respuestas
 // ----------------------------
 function mostrarPregunta() {
   bloqueado = false;
@@ -111,9 +114,9 @@ function mostrarPregunta() {
   imgPersonaje.alt = `Personaje: ${q.correcta}`;
 
   opcionesDiv.innerHTML = "";
-  q.opciones.forEach(op => {
+  q.opciones.forEach((op) => {
     const btn = document.createElement("div");
-    btn.className = "opcion pixel anim-balanceo";
+    btn.className = "opcion pixel anim-bote";
     btn.textContent = op;
 
     btn.onclick = () => {
@@ -129,8 +132,8 @@ function mostrarPregunta() {
 function validarRespuesta(opcion, correcta, btnClicada) {
   const todosBtns = Array.from(opcionesDiv.children);
 
-  // bloquea interacción y da feedback visual
-  todosBtns.forEach(btn => {
+  // bloquea interacción y da feedback visual // da color a la respuesta correcta e incorrecta
+  todosBtns.forEach((btn) => {
     btn.style.pointerEvents = "none";
     if (btn.textContent === correcta) {
       btn.style.borderColor = "#33ff00";
@@ -163,7 +166,7 @@ function validarRespuesta(opcion, correcta, btnClicada) {
 }
 
 // ----------------------------
-// FINAL
+// FINAL oculta imagen y opciones, muestra resultado y animación según aciertos
 // ----------------------------
 function finalizarJuego() {
   pantallaJuego.classList.add("oculto");
