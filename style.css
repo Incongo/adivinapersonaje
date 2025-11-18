@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  margin: 0;
+  padding: 0;
+  background: url("img/fondo.gif") center/cover no-repeat fixed;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.pixel { font-family: 'Press Start 2P', cursive; }
+
+.contenedor-juego {
+  width: 95%;
+  max-width: 500px;
+}
+
+.titulo {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px #33ff00;
+}
+
+/* Pixel borders */
+.pixel-borde {
+  border: 4px solid #33ff00;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  box-shadow: 0 0 12px #33ff00;
+}
+
+/* Animación balanceo retro */
+@keyframes balanceo {
+  0% { transform: rotate(-2deg) scale(1.02); }
+  50% { transform: rotate(2deg) scale(0.98); }
+  100% { transform: rotate(-2deg) scale(1.02); }
+}
+.anim-balanceo {
+  animation: balanceo 1.2s infinite ease-in-out;
+}
+
+/* Pregunta */
+#pregunta-box img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+}
+
+/* Opciones */
+.opciones {
+  margin-top: 20px;
+}
+
+.opcion {
+  background: #111;
+  padding: 12px;
+  margin: 10px 0;
+  border: 3px solid #fff;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.opcion:hover {
+  transform: scale(1.08);
+  background: #333;
+  box-shadow: 0 0 10px #33ff00;
+}
+
+/* Mensaje respuesta */
+.mensaje {
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Final */
+#pantalla-final {
+  background: rgba(0,0,0,0.8);
+  padding: 20px;
+}
+
+.oculto { display: none; }
+
+.btn {
+  background: #111;
+  border: 3px solid #33ff00;
+  padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  background: #333;
+  box-shadow: 0 0 10px #33ff00;
+}
+
+#btn-reiniciar {
+  background-color: #ffffffff !important;
+}
+
+
+/* Animaciones finales */
+@keyframes celebracion {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2) rotate(5deg); }
+  100% { transform: scale(1); }
+}
+.celebracion { animation: celebracion 0.6s infinite; }
+
+@keyframes neutro {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.neutro { animation: neutro 0.9s infinite; }
+
+@keyframes triste {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(8px) rotate(-2deg); }
+  100% { transform: translateY(0); }
+}
+.triste { animation: triste 0.9s infinite; }

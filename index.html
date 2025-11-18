@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adivina el Personaje Gamer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="contenedor-juego">
+    <h1 class="titulo pixel">🎮 Adivina el Personaje Gamer</h1>
+
+    <div id="pantalla-juego" class="pantalla">
+      <div id="pregunta-box" class="card pixel-borde anim-balanceo">
+        <img id="img-personaje" src="" alt="personaje">
+      </div>
+
+      <div id="opciones" class="opciones"></div>
+      <p id="mensaje" class="mensaje"></p>
+    </div>
+
+    <div id="pantalla-final" class="pantalla oculto">
+      <h2 id="resultado-final" class="pixel"></h2>
+      <div id="anim-final"></div>
+      <button id="btn-reiniciar" class="btn pixel">🔄 Jugar otra vez</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
